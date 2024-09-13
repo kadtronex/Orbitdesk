@@ -1,32 +1,28 @@
+<!-- main.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OrbitDesk - Motor Control</title>
+  <title>OrbitDesk - Control</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>OrbitDesk - Motor & Camera Control</h1>
-  </header>
-
-  <div class="container">
-    <button id="rotateButton">Rotate</button>
-    <button id="stopButton">Stop</button>
-    <p id="motorStatus">Motor Status: Off</p>
-
-    <button id="cameraButton">Open Camera</button>
-    <button id="takePictureButton">Take Picture</button>
-    <button id="recordVideoButton">Record Video</button>
-    <button id="stopVideoButton">Stop Video</button>
-
-    <button id="disconnectButton">Disconnect and Close</button>
-  </div>
-
-  <footer>
-    <p>&copy; 2024 OrbitDesk</p>
-  </footer>
+  <header>OrbitDesk v1.0 - Sep 2024</header>
+  <main>
+    <h1>Stepper Motor & LED Control</h1>
+    <div class="container">
+      <button id="rotate-btn">Rotate</button>
+      <button id="stop-btn">Stop</button>
+      <div id="motor-status">Motor Status: OFF</div>
+      <button id="camera-btn">Camera</button>
+      <button id="take-picture-btn">Take Picture</button>
+      <button id="record-btn">Record Video</button>
+      <button id="stop-video-btn">Stop Video</button>
+      <button id="disconnect-btn">Disconnect and Close</button>
+    </div>
+  </main>
+  <footer>All Rights Reserved 2024</footer>
 
   <script src="script.js"></script>
 </body>
