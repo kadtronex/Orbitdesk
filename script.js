@@ -1,61 +1,31 @@
 let device;
 let server;
+let service;
 let characteristic;
 
-async function connectToOrbitDesk() {
+// Connect to ESP32
+async function connectToESP32() {
   try {
+    console.log('Requesting Bluetooth Device...');
     device = await navigator.bluetooth.requestDevice({
-      filters: [{ name: 'OrbitDesk-BLE' }],
-      optionalServices: ['19b10000-e8f2-537e-4f6c-d104768a1214']
+      filters: [{ services: ['19b10000-e8f2-537e-4f6c-d104768a1214'] }]
     });
 
+    console.log('Connecting to GATT Server...');
     server = await device.gatt.connect();
-    const service = await server.getPrimaryService('19b10000-e8f2-537e-4f6c-d104768a1214');
-    characteristic = await service.getCharacteristic('19b10001-e8f2-537e-4f6c-d104768a1214');
 
-    document.getElementById('status').textContent = 'Status: Connected';
+    console.log('Getting Service...');
+    service = await server.getPrimaryService('19b10000-e8f2-537e-4f6c-d104768a1214');
+
+    console.log('Getting Characteristic...');
+    characteristic = await service.getCharacteristic('19b10002-e8f2-537e-4f6c-d104768a1214');
+
+    document.getElementById('connectionStatus').innerText = 'Connected to ESP32';
   } catch (error) {
-    console.error('Connection failed', error);
-    document.getElementById('status').textContent = 'Status: Connection Failed';
+    console.log('Connection failed', error);
+    document.getElementById('connectionStatus').innerText = 'Connection failed';
   }
 }
 
-function navigateToMain() {
-  window.location.href = 'main.html';
-}
-
-document.getElementById('connect-btn').addEventListener('click', connectToOrbitDesk);
-
-// main.html functionalities
-
-async function rotateMotor() {
-  if (characteristic) {
-    await characteristic.writeValue(new TextEncoder().encode('rotate'));
-    document.getElementById('motor-status').textContent = 'Motor Status: ON';
-  }
-}
-
-async function stopMotor() {
-  if (characteristic) {
-    await characteristic.writeValue(new TextEncoder().encode('stop'));
-    document.getElementById('motor-status').textContent = 'Motor Status: OFF';
-  }
-}
-
-document.getElementById('rotate-btn').addEventListener('click', rotateMotor);
-document.getElementById('stop-btn').addEventListener('click', stopMotor);
-
-// Camera functionality (basic example)
-document.getElementById('camera-btn').addEventListener('click', async () => {
-  const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-  const video = document.createElement('video');
-  document.body.appendChild(video);
-  video.srcObject = stream;
-  video.play();
-});
-
-document.getElementById('disconnect-btn').addEventListener('click', () => {
-  if (server) {
-    server.disconnect();
-  }
-  window.location.href = 'index.html';
+// Add event listener to the "Connect to OrbitDesk" button
+document.getElementById('connectButton').addEventListener('click', connectToESP32);
