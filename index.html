@@ -1,3 +1,29 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrbitDesk - BLE Control</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>OrbitDesk v1.0 - Sep 2024</header>
+  <main>
+    <h1>Welcome to OrbitDesk Product</h1>
+    <div class="container">
+      <button id="connect-btn">Connect to OrbitDesk</button>
+      <div id="status">Status: Not Connected</div>
+      <button id="run-btn" onclick="navigateToMain()">Run</button>
+    </div>
+  </main>
+  <footer>All Rights Reserved 2024</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!-- main.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,23 +33,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>OrbitDesk Control</h1>
-  </header>
-
-  <div class="container">
-    <h2>Welcome to OrbitDesk</h2>
-    <p>Version 1.0 - Date: 2024-09-13</p>
-
-    <button id="connectButton">Connect to OrbitDesk</button>
-    <p id="connectionStatus">Status: Not Connected</p>
-
-    <button id="runButton" onclick="location.href='main.html'">Run</button>
-  </div>
-
-  <footer>
-    <p>&copy; 2024 OrbitDesk</p>
-  </footer>
+  <header>OrbitDesk v1.0 - Sep 2024</header>
+  <main>
+    <h1>Stepper Motor & LED Control</h1>
+    <div class="container">
+      <button id="rotate-btn">Rotate</button>
+      <button id="stop-btn">Stop</button>
+      <div id="motor-status">Motor Status: OFF</div>
+      <button id="camera-btn">Camera</button>
+      <button id="take-picture-btn">Take Picture</button>
+      <button id="record-btn">Record Video</button>
+      <button id="stop-video-btn">Stop Video</button>
+      <button id="disconnect-btn">Disconnect and Close</button>
+    </div>
+  </main>
+  <footer>All Rights Reserved 2024</footer>
 
   <script src="script.js"></script>
 </body>
