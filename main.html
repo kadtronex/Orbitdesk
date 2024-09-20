@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Stepper & LED Controller</h1>
+    </header>
+
+    <main>
+        <h2>Control the Stepper Motor and LED</h2>
+
+        <div class="controls">
+            <h3>Stepper Motor</h3>
+            <button class="btn" onclick="rotateStepper('forward')">Rotate Forward</button>
+            <button class="btn" onclick="rotateStepper('backward')">Rotate Backward</button>
+        </div>
+
+        <div class="controls">
+            <h3>LED</h3>
+            <button class="btn" onclick="toggleLED('on')">Turn LED On</button>
+            <button class="btn" onclick="toggleLED('off')">Turn LED Off</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Synapse Data</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
